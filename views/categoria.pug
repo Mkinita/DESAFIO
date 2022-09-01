@@ -1,4 +1,16 @@
 extends ./layout/index
 
 block contenido
-    p categoria
+    h1 #{pagina}
+    main.container.mt-5 
+        .row.proximos-viajes
+
+        each Categoria in cate 
+        
+
+
+            
+
+            a(href=`categoria/${Categoria.name}`, class="btn btn-success btn-block")
+                h2= Categoria.name
+        //- p= JSON.stringify(cate)

@@ -1,0 +1,21 @@
+extends ./layout/index
+block contenido
+    h1 #{pagina}
+    
+    from(action='/' method='GET')
+        input(type='text' name='buscar')
+        input(type='submit' value='Buscar')
+    main.container.mt-5 
+        .row.proximos-viajes
+            
+            each Producto in product 
+                
+                .col-md-6.col-lg-4.mb-4
+                    .card
+                        img.card-img-top(src=`(Producto.url_image)`)
+                    .card-body
+                        h2= Producto.name 
+                            p= Producto.price
+                            a(href=`producto/${Producto.name}`, class="btn btn-success btn-block") Buscar Por Categoria
+                                img(src="img/cart.png", alt="")
+                                //- p= Producto.discount 

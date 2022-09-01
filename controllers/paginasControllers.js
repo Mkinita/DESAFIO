@@ -1,15 +1,39 @@
-import { Categoria } from '../models/Categoria.js'
+import {Producto} from '../Models/Producto.js'
+import {Categoria} from '../Models/Categoria.js'
 
-const paginaInicio = async (req, res) =>{
-    
-    const cat = await Categoria.findAll();
-    console.log(cat);
-
+const paginaInicio = (req, res) => {
     res.render('inicio',{
-        pagina: 'Inicio'
-});
+    pagina:'inicio'
+    });
 }
 
-export{
-    paginaInicio
+const paginaProducto = async (req, res)  => {
+
+    const product  =  await Producto.findAll() ;
+    
+    console.log(product);
+    res.render('producto',{
+        pagina:'producto',
+        product,
+        });
+}
+
+
+const paginaCategoria = async (req, res) => {
+
+    const cate = await Categoria.findAll();
+    
+    console.log(cate)
+
+    res.render('categoria',{
+        pagina:'categoria',
+        cate,
+        });
+}
+
+
+
+
+export {
+    paginaInicio, paginaProducto, paginaCategoria
 }

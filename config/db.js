@@ -1,12 +1,15 @@
-import sequelize from "sequelize";
+import Sequelize from 'sequelize';
+import dotenv from 'dotenv/config'
 
+console.log(process.env.DB_HOST)
 
-const db = new sequelize ('prueba', 'root','1123',{
-    host:'127.0.0.1',
+const db = new Sequelize(process.env.DB_NAME ,process.env.DB_USER,process.env.DB_PASS,{
+    host: process.env.DB_HOST,
     port:'3306',
     dialect:'mysql',
-    define:{
-        timestamps: false
+    define:{  
+        freezeTableName:true,
+        timestamps:false
     },
     poll:{
         max:5,
