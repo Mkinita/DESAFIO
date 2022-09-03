@@ -32,23 +32,6 @@ const paginaCategoria = async (req, res) => {
         });
 }
 
-const paginaDetalleCategoria = async (req, res) =>{
-    // console.log(req.params)
-    const {cat} = req.params;
-
-    try {
-        const resultado = await Categoria.findOne({where:{name:cat} });
-
-        res.render('detalle', {
-            pagina:'informacion',
-            resultado
-            
-        })
-    } catch (error) {
-       console.log(error);
-    }
-}
-
 const paginaProductoCategoria = async (req, res) =>{
     // console.log(req.params)
     const {pro} = req.params;
@@ -64,8 +47,16 @@ const paginaProductoCategoria = async (req, res) =>{
        console.log(error);
     }
 }
- 
+const paginaObtenerCategoriaProducto = async (req,res) =>{
+   
+        const resultado = await Producto.findAll({
+            where: {
+                categoty:req.params.prod
+            }
+        })
 
+        res.send(req.params.prod);    
+}
 
 
 
@@ -76,6 +67,7 @@ export {
     paginaInicio, 
     paginaProducto, 
     paginaCategoria,
-    paginaDetalleCategoria,
-    paginaProductoCategoria
+    // paginaDetalleCategoria,
+    paginaProductoCategoria,
+    paginaObtenerCategoriaProducto
 }

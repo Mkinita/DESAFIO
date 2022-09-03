@@ -1,10 +1,10 @@
 extends ./layout/index
 block contenido
     h1 #{pagina}
-    
-    from(action='/producto/search')
-        input(type='search' name='term')
-        input(type='submit' value='Search')
+        p 
+            from(action='/producto/search')
+                input(type='search' name='term')
+                input(type='submit' value='Search')
     main.container.mt-5 
         .row.proximos-viajes
             

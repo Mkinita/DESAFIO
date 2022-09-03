@@ -6,11 +6,6 @@ block contenido
         .row.proximos-viajes
 
         each Categoria in cate 
-        
-
-
-            
-
-            a(href=`categoria/${Categoria.name}`, class="btn btn-success btn-block")
-                h2= Categoria.id
+            a(href=`productos/${Categoria.id}`, class="btn btn-success btn-block")
+                h2= Categoria.name
         //- p= JSON.stringify(cate)
