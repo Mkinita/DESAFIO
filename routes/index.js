@@ -6,7 +6,6 @@ import { paginaInicio,
     paginaProductoCategoria,
     paginaObtenerCategoriaProducto,
 } from "../controllers/paginasControllers.js";
-import { Producto } from "../Models/Producto.js";
 
 const router = express.Router();
 
