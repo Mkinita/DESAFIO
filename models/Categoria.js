@@ -4,6 +4,6 @@ import db from '../config/db.js'
 
 export const Categoria = db.define('category',{
     name:{
-        type: sequelize.STRING
+        type: Sequelize.STRING
     },
 });
