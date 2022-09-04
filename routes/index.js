@@ -2,7 +2,7 @@ import express from "express";
 import { paginaInicio,
     paginaProducto,
     paginaCategoria ,
-    // paginaDetalleCategoria,
+    buscaProductoNombre,
     paginaProductoCategoria,
     paginaObtenerCategoriaProducto,
 } from "../controllers/paginasControllers.js";
@@ -11,17 +11,14 @@ import { Producto } from "../Models/Producto.js";
 const router = express.Router();
 
 router.get('/inicio',paginaInicio);
-
 router.get('/producto',paginaProducto);
-
 router.get('/categoria',paginaCategoria);
-
-// router.get('/categoria/:cat',paginaDetalleCategoria);
-
 router.get('/producto/:pro',paginaProductoCategoria);
+//ruta que busca productos por nombre 
+router.post('/producto/:buscar_nombre_producto',buscaProductoNombre);
+//ruta que busca productos por el id de la categoria 
+router.get('/productos/:categoria_id',paginaObtenerCategoriaProducto);
 
-
-router.get('/productos/:prod',paginaObtenerCategoriaProducto);
 
 
 export default router;

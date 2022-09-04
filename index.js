@@ -23,9 +23,16 @@ app.use((req, res, next) =>{
     res.locals.nombresitio = "DESAFIO";
     next();
 });
+
+
+app.use('/', express.urlencoded({extended: true}));
+
+
 app.use('/', router);
 
 
 app.listen(port,()=>{
     console.log(`El sirvisor esta funcionando en el puerto ${port}`)
 })
+
+app.use(express.urlencoded({extended:true}));

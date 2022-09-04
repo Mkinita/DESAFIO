@@ -1,23 +1,23 @@
 extends ./layout/index
 block contenido
     h1 #{pagina}
-        p 
-            from(action='/producto/search')
-                input(type='search' name='term')
-                input(type='submit' value='Search')
+    P
+            form(action="/producto/buscar_nombre_producto", method="POST")
+                input#nombre(type="text", placeholder= "Ingrese Nombre",name="nombre" value = nombre)
+                input(type="submit" )
     main.container.mt-5 
         .row.proximos-viajes
             
-            each Producto in product 
+            each Producto in product
 
                 
                 .col-md-6.col-lg-4.mb-4
                     .card
-                        img.card-img-top(src=`(Producto.url_image)`)
+                        img.card-img-top(src=(Producto.url_image))
                             
                     .card-body
-                        h2= Producto.name 
-                            p= Producto.price
+                        h2= Producto.name
+                            h3= Producto.price
                             a(href=`producto/${Producto.name}`, class="btn btn-success btn-block") Detalle del producto
                                 
                                      

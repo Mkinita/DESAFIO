@@ -48,14 +48,32 @@ const paginaProductoCategoria = async (req, res) =>{
     }
 }
 const paginaObtenerCategoriaProducto = async (req,res) =>{
-   
-        const resultado = await Producto.findAll({
-            where: {
-                categoty:req.params.prod
-            }
-        })
+    const id_categoria = req.params.categoria_id;
 
-        res.send(req.params.prod);    
+    const productos = await Producto.findAll({ where: {
+        category:id_categoria
+      }});
+
+      res.render('listado_categoria', {
+        pagina:'listado',
+        productos
+        
+    })
+}
+const buscaProductoNombre = async (req,res) =>{
+    
+    
+    const {nombre} = req.body
+    const buscar_nombre_producto = req.params.buscar_nombre_producto;
+    const buscar = await Producto.findAll({ where: {
+        name
+      }});
+      
+      res.render('buscar_producto_nombre',{
+        pagina:'buscar_producto_nombre',
+        nombre,
+        buscar,
+        });
 }
 
 
@@ -67,7 +85,7 @@ export {
     paginaInicio, 
     paginaProducto, 
     paginaCategoria,
-    // paginaDetalleCategoria,
+    buscaProductoNombre,
     paginaProductoCategoria,
     paginaObtenerCategoriaProducto
 }
